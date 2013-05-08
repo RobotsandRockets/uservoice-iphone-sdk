@@ -22,6 +22,7 @@
     BOOL showPostIdea;
     BOOL showContactUs;
     BOOL showKnowledgeBase;
+    BOOL showWelcomeScreenAfterSubmit;
 }
 
 + (UVConfig *)configWithSite:(NSString *)site andKey:(NSString *)key andSecret:(NSString *)secret;
@@ -41,6 +42,7 @@
 @property (nonatomic, assign) BOOL showPostIdea;
 @property (nonatomic, assign) BOOL showContactUs;
 @property (nonatomic, assign) BOOL showKnowledgeBase;
+@property (nonatomic, assign) BOOL showWelcomeScreenAfterSubmit;
 @property (nonatomic, retain) NSString* extraTicketInfo;
 
 - (id)initWithSite:(NSString *)theSite andKey:(NSString *)theKey andSecret:(NSString *)theSecret;

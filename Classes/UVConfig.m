@@ -25,6 +25,7 @@
 @synthesize showPostIdea;
 @synthesize showContactUs;
 @synthesize showKnowledgeBase;
+@synthesize showWelcomeScreenAfterSubmit;
 @synthesize extraTicketInfo;
 
 + (UVConfig *)configWithSite:(NSString *)site andKey:(NSString *)key andSecret:(NSString *)secret {
@@ -56,6 +57,7 @@
         showPostIdea = YES;
         showContactUs = YES;
         showKnowledgeBase = YES;
+        showWelcomeScreenAfterSubmit = YES;
     }
     return self;
 }

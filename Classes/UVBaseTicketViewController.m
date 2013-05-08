@@ -88,14 +88,19 @@
     [self cleanupInstantAnswersTimer];
     dismissed = YES;
     if ([UVSession currentSession].isModal && firstController) {
-        CATransition* transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.type = kCATransitionFade;
-        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-        UVWelcomeViewController *welcomeView = [[[UVWelcomeViewController alloc] init] autorelease];
-        welcomeView.firstController = YES;
-        NSArray *viewControllers = @[[self.navigationController.viewControllers objectAtIndex:0], welcomeView];
-        [self.navigationController setViewControllers:viewControllers animated:NO];
+        if ([UVSession currentSession].config.showWelcomeScreenAfterSubmit) {
+            CATransition* transition = [CATransition animation];
+            transition.duration = 0.3;
+            transition.type = kCATransitionFade;
+            [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+            UVWelcomeViewController *welcomeView = [[[UVWelcomeViewController alloc] init] autorelease];
+            welcomeView.firstController = YES;
+            NSArray *viewControllers = @[[self.navigationController.viewControllers objectAtIndex:0], welcomeView];
+            [self.navigationController setViewControllers:viewControllers animated:NO];
+
+        } else {
+            [self dismiss];
+        }
     } else {
         UINavigationController *nav = (UINavigationController *)self.presentingViewController;
         [nav setViewControllers:[nav.viewControllers subarrayWithRange:NSMakeRange(0, 2)] animated:NO];
