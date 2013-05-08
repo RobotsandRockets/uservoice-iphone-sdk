@@ -24,6 +24,7 @@
 #import "UVForum.h"
 #import "UVKeyboardUtils.h"
 #import "UVWelcomeViewController.h"
+#import "UserVoice.h"
 
 @implementation UVBaseTicketViewController
 
@@ -107,6 +108,11 @@
         [(UVWelcomeViewController *)[nav.viewControllers lastObject] updateLayout];
         [self dismissModalViewControllerAnimated:YES];
     }
+    
+    if ([[UserVoice delegate] respondsToSelector:@selector(userVoiceTicketViewController:didSubmitTicket:)])
+        [[UserVoice delegate]  userVoiceTicketViewController:self didSubmitTicket:theTicket];
+
+
 }
 
 - (void)reloadCustomFieldsTable {

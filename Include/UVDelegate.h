@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UVBaseTicketViewController;
+@class UVBaseSuggestionViewController;
+@class UVTicket;
+@class UVSuggestion;
 
 @protocol UVDelegate <NSObject>
 @optional
 - (void)userVoiceWasDismissed;
+- (void)userVoiceTicketViewController:(UVBaseTicketViewController*) ticketVC didSubmitTicket:(UVTicket*) ticket;
+- (void)userVoiceSuggestionViewController:(UVBaseSuggestionViewController*) ticketVC didSubmitSuggestion:(UVSuggestion*) suggestion;
+
 @end

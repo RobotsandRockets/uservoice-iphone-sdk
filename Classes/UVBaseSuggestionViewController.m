@@ -19,6 +19,7 @@
 #import "UVWelcomeViewController.h"
 #import "UVCategorySelectViewController.h"
 #import "UVConfig.h"
+#import "UserVoice.h"
 
 @implementation UVBaseSuggestionViewController
 
@@ -132,6 +133,9 @@
         }
     }
     [self dismissModalViewControllerAnimated:YES];
+    if ([[UserVoice delegate] respondsToSelector:@selector(userVoiceSuggestionViewController:didSubmitSuggestion:)])
+        [[UserVoice delegate]  userVoiceSuggestionViewController:self didSubmitSuggestion:theSuggestion];
+
 }
 
 - (UITextField *)customizeTextFieldCell:(UITableViewCell *)cell label:(NSString *)label placeholder:(NSString *)placeholder {
