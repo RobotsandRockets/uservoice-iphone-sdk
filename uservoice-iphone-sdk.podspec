@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.license       = { :type => 'Apache License, Version 2.0', :file => 'README.md' }
 
   s.author        = 'UserVoice'
-  s.source        = { :git => "https://github.com/RobotsandRockets/uservoice-iphone-sdk.git" }
 
   s.platform      = :ios
 
